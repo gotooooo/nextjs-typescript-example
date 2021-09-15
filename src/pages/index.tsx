@@ -6,18 +6,13 @@ import Movie from "../components/Movies/Movie";
 import styles from "./index.module.scss";
 
 const Home: NextPage = () => {
-  const [updateKeyword, res, err, resetErr] = useFetchMovies();
+  const [updateKeyword, res, err] = useFetchMovies();
   const [keyword, setKeyword] = useState("man");
 
   useEffect(() => {
     if (!err) return;
     console.log(err);
   }, [err])
-
-  useEffect(() => {
-    resetErr();
-    if (!res) return;
-  }, [res])
 
   const movies = res.map((movie) => {
     console.log(movie.Poster);
