@@ -1,1 +1,2 @@
-# nextjs-typescript-example
+# nextjs typescript example
+
