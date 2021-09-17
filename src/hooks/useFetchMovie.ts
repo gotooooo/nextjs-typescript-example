@@ -1,8 +1,8 @@
-import { useCallback, useState } from "react";
+import {useEffect, useState} from "react";
 import apiClient, { baseQuery } from "../utils/apiClient";
 import {MovieDetail} from "../types/Movie";
 
-const useFetchMovie = (title = "Iron%20Man"): [() => void, MovieDetail, any] => {
+const useFetchMovie = (title = "Iron%20Man"): [MovieDetail, any] => {
   const initalState: MovieDetail = {
     Title: "",
     Year: "",
@@ -32,7 +32,7 @@ const useFetchMovie = (title = "Iron%20Man"): [() => void, MovieDetail, any] => 
   const [res, setRes] = useState<MovieDetail>(initalState);
   const [err, setErr] = useState(null);
 
-  const fetchMovie = useCallback( () => {
+  useEffect(() => {
     const titleQuery = title !== "" ? `&t=${title}` : "Iron%20Man";
     const fetch = async () => {
       await apiClient.get(`${baseQuery}${titleQuery}`)
@@ -45,7 +45,8 @@ const useFetchMovie = (title = "Iron%20Man"): [() => void, MovieDetail, any] => 
     }
     fetch();
   }, [])
-  return [fetchMovie, res, err]
+
+  return [res, err]
 }
 
 export default useFetchMovie;

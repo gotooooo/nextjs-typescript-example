@@ -7,12 +7,8 @@ const useFetchMovies = (): [(input: string) => void, MovieWithId[], any] => {
   const [err, setErr] = useState<any>(null);
   const [keyword, setKeyword] = useState("man");
 
-  const updateKeyword = (input: string) => {
+  const searchByKeyword = (input: string) => {
     setKeyword(input)
-  }
-
-  const resetErr = () => {
-    setErr(null);
   }
 
   useEffect(() => {
@@ -39,7 +35,7 @@ const useFetchMovies = (): [(input: string) => void, MovieWithId[], any] => {
     fetch();
   }, [keyword])
 
-  return [updateKeyword, res, err]
+  return [searchByKeyword, res, err]
 }
 
 export default useFetchMovies;

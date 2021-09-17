@@ -8,11 +8,7 @@ import MovieDetail from "../../../components/Movies/MovieDetail";
 
 const MovieByTitle: NextPage = ({ title }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
 
-  const [fetch, res, err] = useFetchMovie(title);
-
-  useEffect(() => {
-    fetch();
-  }, [fetch])
+  const [res, err] = useFetchMovie(title);
 
   useEffect(() => {
     if (!err) return;
@@ -22,8 +18,8 @@ const MovieByTitle: NextPage = ({ title }: InferGetServerSidePropsType<typeof ge
   return (
     <div className={styles.container}>
       <Head>
-        <title>{title}</title>
-        <meta name="description" content={`${title}`} />
+        <title>Example</title>
+        <meta name="description" content={title} />
       </Head>
       <MovieDetail
         Title={res.Title}
