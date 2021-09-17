@@ -36,8 +36,8 @@ const Home: NextPage = () => {
   return (
     <div >
       <Head>
-        <title>TOP</title>
-        <meta name="description" content="top" />
+        <title>Example</title>
+        <meta name="description" content="Example" />
       </Head>
       <main>
         <div className={styles.search}>
