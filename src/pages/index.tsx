@@ -6,7 +6,7 @@ import Movie from "../components/Movies/Movie";
 import styles from "./index.module.scss";
 
 const Home: NextPage = () => {
-  const [updateKeyword, res, err] = useFetchMovies();
+  const [searchByKeyword, res, err] = useFetchMovies();
   const [keyword, setKeyword] = useState("man");
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const Home: NextPage = () => {
 
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      updateKeyword(keyword);
+      searchByKeyword(keyword);
     }
   }
 
