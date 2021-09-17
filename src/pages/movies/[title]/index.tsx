@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import styles from './index.module.scss'
 import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import useFetchMovie from "../../../hooks/useFetchMovie";
 import {useEffect} from "react";
@@ -16,7 +15,7 @@ const MovieByTitle: NextPage = ({ title }: InferGetServerSidePropsType<typeof ge
   }, [err])
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Example</title>
         <meta name="description" content={title} />
