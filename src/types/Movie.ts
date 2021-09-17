@@ -52,5 +52,5 @@ export type {
   Movie,
   MovieWithId,
   MovieForDisplay,
-  MovieDetail,
+  MovieDetail
 }
